@@ -1,5 +1,8 @@
 # tic-tac-toe
 <img src="images/HalloweenLogo.jpg" alt="Halloween Tic-tac-toe"/>
+
+---
+
 > Be afraid...Be very afraid
 
 ---
