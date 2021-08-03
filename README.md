@@ -1,2 +1,2 @@
 # tic-tac-toe
-<img src="HalloweenLogo.png" alt="Markdown Monster icon"/>
+<img src="HalloweenLogo" alt="Halloween Tic-tac-toe"/>
