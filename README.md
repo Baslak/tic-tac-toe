@@ -1,10 +1,13 @@
 # tic-tac-toe
 <img src="images/HalloweenLogo.jpg" alt="Halloween Tic-tac-toe"/>
 ---
- >Be afraid...Be very afraid
+
+> Be afraid...Be very afraid
+
 ---
 ## Gameboard
 <img src="images/TicTacToe (2).png" alt="TicTacToe board"/>
+
 *Designed on figma*
 
 ---
