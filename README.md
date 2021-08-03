@@ -1,2 +1,2 @@
 # tic-tac-toe
-![] (/images/HalloweenLogo.png)
+<img src="HalloweenLogo.png" alt="Markdown Monster icon"/>
