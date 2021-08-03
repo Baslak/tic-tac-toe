@@ -37,6 +37,11 @@ header > p {
     justify-content: space-evenly;
 }
 
+#results {
+    text-align: center;
+    font-style: italic;
+}
+
 .gameboard {
     display: grid;
     order: 2;
