@@ -1,2 +1,2 @@
 # tic-tac-toe
-![] (HalloweenLogo.png)
+![] (/images/HalloweenLogo.png)
