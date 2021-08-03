@@ -5,10 +5,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,700,300italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
     <main>
-        <h1>Tic-Tac-Toe</h1>
+        <header>
+            <h1 class="game-title">Halloween Tic-Tac-Toe</h1>
+            <h2 class="tag-line">Can you beat them all?</h2>
+            <p>~Mouhaha~</p>
+        </header>
+    <div class="container">
+        <div class="gameboard">
+            <div data-cell-index="0" class="cell"></div>
+            <div data-cell-index="1" class="cell"></div>
+            <div data-cell-index="2" class="cell"></div>
+            <div data-cell-index="3" class="cell"></div>
+            <div data-cell-index="4" class="cell"></div>
+            <div data-cell-index="5" class="cell"></div>
+            <div data-cell-index="6" class="cell"></div>
+            <div data-cell-index="7" class="cell"></div>
+            <div data-cell-index="8" class="cell"></div>
+        </div>
+        <div class="characters">
+            <h3>Choose a character</h3>
+                <div>
+                    <input type="radio" id="Witch" name="voice" value="Witch" />
+                    <label for="Witch">Witch</label>
+                </div>
+                <div>
+                    <input type="radio" id="Vampire" name="voice" value="Vampire" />
+                    <label for="Vampire">Vampire</label>
+                </div>
+                <div>
+                    <input type="radio" id="Werewolf" name="voice" value="Werewolf" />
+                    <label for="Werewolf">Werewolf</label>
+                </div><br>
+                <button class="buttons" id="play">Play</button>
+        </div>
+        <div class="scoreboard">
+            <h3>Player Scoreboard</h3>
+            <ul>
+                <li>
+                    <a class="players" href="#" data-character="Witch">
+                    <img src="images/Witch.jpg" alt="Witch"/></a>
+                    <div class="scoreboard" value=0 data-score="Witch">0</div>
+                </li>
+                <li>
+                    <a class="players" href="#" data-character="Vampire">
+                    <img src="images/Vampire.jpg" alt="Vampire"/></a>
+                    <div class="scoreboard" value=0 data-score="Vampire">0</div>
+                </li>
+                    <a class="players" href="#" data-character="Werewolf">
+                    <img src="images/Werewolf.jpg" alt="Werewolf"/></a>
+                    <div class="scoreboard" value=0 data-score="Werewolf">0</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <button class="buttons" id="reset">Reset</button>
+    <footer>
+        <p>Halloween Tic-Tac-Toe</p>
+    </footer>
     </main>
+<script src="/script.js"></script>
 </body>
 </html>

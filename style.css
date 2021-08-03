@@ -34,7 +34,7 @@ header > p {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .gameboard {
@@ -69,13 +69,17 @@ header > p {
 .characters {
     display: block;
     order: 1;
+    font-size: 20px;
+}
+
+h3 {
     font-size: 24px;
 }
 
 .scoreboard {
-    display: block;
+    display: inline-block;
     order: 3;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .scoreboard > ul {
@@ -83,8 +87,12 @@ header > p {
 }
 
 img {
-    display: flex;
-    justify-content: center;
+    display: inline-block;
     height: 100px;
     width: 100px;
+}
+
+footer {
+    padding: 40px;
+    text-align: center;
 }
