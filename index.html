@@ -15,60 +15,66 @@
             <h2 class="tag-line">Can you beat them all?</h2>
             <p>~Mouhaha~</p>
         </header>
-    <h4 id="results"></h4><br>
-    <div class="container">
-        <div class="gameboard">
-            <div data-cell-index="0" class="cell"></div>
-            <div data-cell-index="1" class="cell"></div>
-            <div data-cell-index="2" class="cell"></div>
-            <div data-cell-index="3" class="cell"></div>
-            <div data-cell-index="4" class="cell"></div>
-            <div data-cell-index="5" class="cell"></div>
-            <div data-cell-index="6" class="cell"></div>
-            <div data-cell-index="7" class="cell"></div>
-            <div data-cell-index="8" class="cell"></div>
-        </div>
-        <div class="characters">
-            <h3>Choose a character</h3>
-                <div>
-                    <input type="radio" id="Witch" name="voice" value="Witch" />
-                    <label for="Witch">Witch</label>
+        <h4 class="results">No game is active. To start, let player one select a character</h4>
+        <div class="container">
+            <div class="gameboard">
+                <div data-cell-index="0" class="cell"></div>
+                <div data-cell-index="1" class="cell"></div>
+                <div data-cell-index="2" class="cell"></div>
+                <div data-cell-index="3" class="cell"></div>
+                <div data-cell-index="4" class="cell"></div>
+                <div data-cell-index="5" class="cell"></div>
+                <div data-cell-index="6" class="cell"></div>
+                <div data-cell-index="7" class="cell"></div>
+                <div data-cell-index="8" class="cell"></div>
+            </div>
+            <div class="characters">
+                <h3>Choose a character</h3>
+                    <div>
+                        <input type="radio" id="Witch" name="voice" value="Witch" />
+                        <label for="Witch">Witch</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="Vampire" name="voice" value="Vampire" />
+                        <label for="Vampire">Vampire</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="Werewolf" name="voice" value="Werewolf" />
+                        <label for="Werewolf">Werewolf</label>
+                    </div><br>
+                    <button class="buttons" id="choose">Choose</button>
+            </div>
+            <div class="scoreboard">
+                <h3>Player Scoreboard</h3>
+                <ul>
+                    <li>
+                        <a class="players" href="#" data-character="Witch">
+                        <img src="images/Witch.jpg" alt="Witch"/></a>
+                        <div class="scoreboard" value=0 data-score="Witch">0</div>
+                    </li>
+                    <li>
+                        <a class="players" href="#" data-character="Vampire">
+                        <img src="images/Vampire.jpg" alt="Vampire"/></a>
+                        <div class="scoreboard" value=0 data-score="Vampire">0</div>
+                    </li>
+                        <a class="players" href="#" data-character="Werewolf">
+                        <img src="images/Werewolf.jpg" alt="Werewolf"/></a>
+                        <div class="scoreboard" value=0 data-score="Werewolf">0</div>
+                    </li>
+                </ul>
+                <div class="reset-game">
+                    <button class="buttons" id="reset">Reset Scores</button>
                 </div>
-                <div>
-                    <input type="radio" id="Vampire" name="voice" value="Vampire" />
-                    <label for="Vampire">Vampire</label>
-                </div>
-                <div>
-                    <input type="radio" id="Werewolf" name="voice" value="Werewolf" />
-                    <label for="Werewolf">Werewolf</label>
-                </div><br>
-                <button class="buttons" id="play">Play</button>
+            </div>
         </div>
-        <div class="scoreboard">
-            <h3>Player Scoreboard</h3>
-            <ul>
-                <li>
-                    <a class="players" href="#" data-character="Witch">
-                    <img src="images/Witch.jpg" alt="Witch"/></a>
-                    <div class="scoreboard" value=0 data-score="Witch">0</div>
-                </li>
-                <li>
-                    <a class="players" href="#" data-character="Vampire">
-                    <img src="images/Vampire.jpg" alt="Vampire"/></a>
-                    <div class="scoreboard" value=0 data-score="Vampire">0</div>
-                </li>
-                    <a class="players" href="#" data-character="Werewolf">
-                    <img src="images/Werewolf.jpg" alt="Werewolf"/></a>
-                    <div class="scoreboard" value=0 data-score="Werewolf">0</div>
-                </li>
-            </ul>
+        <div class="gameplay">
+            <button class="buttons" id="Play">Play</button><br>
+            <button class="buttons" id="Rematch">Rematch</button>
         </div>
-    </div>
-    <button class="buttons" id="reset">Reset</button>
-    <footer>
-        <p>Halloween Tic-Tac-Toe</p>
-    </footer>
+        <footer>
+            <p>Halloween Tic-Tac-Toe</p>
+        </footer>
     </main>
-<script src="/script.js"></script>
 </body>
+    <script src="script.js"></script>
 </html>
