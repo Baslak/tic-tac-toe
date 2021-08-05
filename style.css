@@ -13,15 +13,15 @@ header {
     font-size: 20px;
     width: auto;
     text-align: center;
-    padding: 50px;
+    padding: 40px;
 }
 
 header > h1 {
-    padding: 10px;
+    padding: 20px 10px;
 }
 
 header > h2 {
-    padding: 10px;
+    padding: 20px 10px;
 }
 
 header > p {
@@ -30,16 +30,18 @@ header > p {
 }
 
 .container {
-    padding: 10px;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-#results {
+.results {
     text-align: center;
+    font-size: 16px;
     font-style: italic;
+    color: green;
+    padding: 10px;
 }
 
 .gameboard {
@@ -48,6 +50,12 @@ header > p {
     width: 300px;
     height: 300px;
     grid-template-columns: repeat(3, auto);
+}
+.gameplay {
+    display: flex;
+    flex-direction: row;
+    order: 2;
+    padding: 20px;
 }
 
 .buttons {
@@ -59,6 +67,7 @@ header > p {
     color: white;
     text-align: center;
     padding: 15px 30px;
+    border-style: none;
 }
 
 .cell {
@@ -70,21 +79,26 @@ header > p {
     border: 5px solid white;
     transition: 0.2s ease-in-out;
 }
+.cell:hover {
+    background-color: bisque;
+}
 
 .characters {
     display: block;
     order: 1;
     font-size: 20px;
+    width: 200px;
+    height: 200px;
 }
 
 h3 {
-    font-size: 24px;
+    font-size: 20px;
+    padding: 20px;
 }
 
 .scoreboard {
     display: inline-block;
     order: 3;
-    font-size: 20px;
 }
 
 .scoreboard > ul {
@@ -92,12 +106,17 @@ h3 {
 }
 
 img {
-    display: inline-block;
-    height: 100px;
-    width: 100px;
+    display: flex;
+    flex-direction: row;
+    height: 75px;
+    width: 75px;
+}
+
+.reset-game {
+    padding: 10px;
 }
 
 footer {
-    padding: 40px;
+    padding: 30px;
     text-align: center;
 }
