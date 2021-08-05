@@ -1,33 +1,51 @@
-let gameResults = document.getElementsByTagName('h4') // provides the status of the game & communicates with player
-console.log(gameResults)
 
-let gameActive = true;
-let gameConditions = ["", "", "", "", "", "", "", "", ""];
+const gameResults = document.querySelector('h4') // provide the status of the game & communicates with player
 
-let player1GoesFirst = true //player1 chooses first
+//PICKING A CHARACTER: 
+
 let player1Selection = '' //first player selection
 let player2Selection = '' //second player selection
 
-const playButton = document.getElementById('play') // get the play button 
+const selectCharacter = () => {
+        let selection = '';
+        if (document.getElementById('Witch').checked) {
+            selection = 'Witch'
+        } else if (document.getElementById('Vampire').checked) {
+            selection = 'Vampire'
+        } else if (document.getElementById('Werewolf').checked) {
+            selection = 'Werewolf'
+        }
+        return selection
+    }
+
+const chooseButton = document.getElementById('choose') // get the choose button 
+
+chooseButton.addEventListener('click', (event) => {
+    if (player1Selection === '') {
+        player1Selection = selectCharacter();
+        gameResults.innerHTML = `Player 1 has selected: ${player1Selection}. Now player 2 has to decide...remember you can't be the same character!`
+   
+    } else if (player2Selection === '') {
+            player2Selection = selectCharacter();
+            if (player1Selection != player2Selection) {
+            gameResults.innerHTML= `Player 2 has selected: ${player2Selection}. Hit play to start the game`
+            } else {
+            gameResults.innerHTML= `You need to chose a different character to player 1`
+            player2Selection = ''
+            }
+
+    } else {
+        console.log('no character selected')
+    }
+})
+
+//GAMEPLAY:
+
+const playButton = document.getElementById('play')
 console.log(playButton)
 
-playButton.addEventListener('click', (event) => {
-    console.log('Click')
-})
-//     let selection = ''
-//         if (document.getElementById('Witch').checked) {
-//             selection = 'Witch'
-//         } else if (document.getElementById('Vampire').checked) {
-//             selection = 'Vampire'
-//         } else if (document.getElementById('Werewolf').checked) {
-//             selection = 'Werewolf'
-//         }
-//         console.log(`Selection: ${selection}`);
+// let gameConditions = ["", "", "", "", "", "", "", "", ""];
 
-//     if (player1Selection === '' && player1GoesFirst === true ) {
-//         let player1Selection = selection
-//         let gameResults.textContent = `Player 1 has selected: ${player1Selection}`
-//     }
 // const winningConditions = [
 //     [0, 1, 2], //top left to right
 //     [3, 4, 5], //middle left to right
@@ -47,9 +65,9 @@ playButton.addEventListener('click', (event) => {
 //     currentPlayer = currentPlayer === "X" ? "O" : "X";
 //     statusDisplay.innerHTML = currentPlayerTurn();
 // }
-// // const winningMessage = () => `Player ${currentPlayer} has won!`;
-// // const drawMessage = () => `Game ended in a draw!`;
-// // const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
+// const winningMessage = () => `Player ${currentPlayer} has won!`;
+// const drawMessage = () => `Game ended in a draw!`;
+// const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
 
 // statusDisplay.innerHTML = currentPlayerTurn();
 
