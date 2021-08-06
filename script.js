@@ -1,4 +1,3 @@
-;debugger;
 const gameResults = document.querySelector('h4') // provide the status of the game & communicates with player
 // const scores = document.getElementsByClassName("score")
 const playButton = document.getElementById('Play');
@@ -40,7 +39,7 @@ const selectCharacter = () => {
        
 function characterChosenCheck () {
     if (player1Selection === '' || player2Selection === '') {
-        gameResults.innerHTML = "You need to choose a character to play"
+        gameResults.innerHTML = "Choose a character to play"
         return false;
     } else {
         return true;
@@ -69,20 +68,20 @@ chooseButton.addEventListener('click', (event) => {
     if (player1Selection === '') {
         player1Selection = selectCharacter();
         currentPlayer = player1Selection
-        gameResults.innerHTML = `Player 1 has selected: ${player1Selection}. Now player 2 has to decide...remember you can't be the same character!`
+        gameResults.innerHTML = `Player 1 has selected: ${player1Selection}. Player 2 must decide!`
         disableCharacterButtons ()
 
     } else if (player2Selection === '') {
             player2Selection = selectCharacter();
             if (player1Selection != player2Selection) {
-            gameResults.innerHTML= `Player 2 has selected: ${player2Selection}. Hit play to start the game`
+            gameResults.innerHTML= `Player 2 has selected: ${player2Selection}. Hit play to start`
             
             document.getElementById('Werewolf').disabled = true;
             document.getElementById('Vampire').disabled = true;
             document.getElementById('Witch').disabled = true;
 
             } else {
-            gameResults.innerHTML= `You need to chose a different character to player 1`
+            gameResults.innerHTML= "Chose a different character to player 1"
             player2Selection = ''
             }
 
@@ -103,7 +102,6 @@ playButton.addEventListener('click', (event) => {
 //if they select cell 2, cell 2 becomes the current player, elimination the possibility of the cell being player again
 
 function cellSelectedOutcome(event) {
-    checkifDraw() 
     if (characterChosenCheck() && gameActive) {
         const clickedCell = event.target;
         const cellIndex = clickedCell.getAttribute('data-cell-index');
@@ -113,11 +111,9 @@ function cellSelectedOutcome(event) {
         }
         cellSelected(clickedCell, cellIndex);
     }
-    checkifDraw() 
 }
 
 function cellSelected(clickedCell, cellIndex) {
-    checkifDraw() 
     if (matchWon === false) {
         gameStatus[cellIndex] = currentPlayer; //current player is pushed into the cell index
         clickedCell.innerHTML = currentPlayer; //report to player
@@ -125,13 +121,12 @@ function cellSelected(clickedCell, cellIndex) {
     }
     checkifDraw()
     checkifWin()
+
     if (matchWon === false) {
         player1Turn = !player1Turn;
         currentPlayer = player1Turn ? player1Selection : player2Selection; //ternary exp.
         gameResults.innerHTML= `It's ${currentPlayer}'s turn`;
-        console.log(gameStatus)
     }
-    checkifDraw() 
 }
 
 const winningConditions = [
@@ -153,26 +148,25 @@ function updateScore () {    //Push scores into html
             let currentScore = parseInt(score.innerText)
             score.innerText = currentScore + 1
         }
-        console.log(playerCharacter)
-        console.log(player1Selection)
     }
 }
 
 function checkifDraw() {
     if (gameDraw) {
         gameResults.innerHTML = "It's a draw. Hit rematch to play againt or restart game to choose new characters"
-        gameActive = false;
+        rematchGame()
+        return;
+    } else {
         return;
     }
 }
 
 function checkifWin() {
     for (let condition of winningConditions) {
-
         if (gameStatus[condition[0]] === gameStatus[condition[1]] && gameStatus[condition[0]] === gameStatus[condition[2]] && gameStatus[condition[0]] !== "") {
             matchWon = true
+            console.log(currentPlayer)
             gameResults.innerHTML = `Player ${currentPlayer} has won. Hit rematch to start again or reset to play with new characters!`
-
             if (currentPlayer === player1Selection) {
                 player1Score = player1Score += 1
             } else if (currentPlayer === player2Selection) {
@@ -190,13 +184,16 @@ function checkifWin() {
 }
 
 function rematchGame() {
-    gameActive = true;
-    matchWon = false;
-    currentPlayer = player1Selection;
-    gameStatus = ["", "", "", "", "", "", "", "", ""];
-    gameResults.innerHTML = `It's ${currentPlayer}'s turn`;
-    document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
-    document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', cellSelectedOutcome));
+    if (currentPlayer = player1Selection) {
+        gameActive = true;
+        matchWon = false;
+        gameStatus = ["", "", "", "", "", "", "", "", ""];
+        gameResults.innerHTML = `It's ${currentPlayer}'s turn`;
+        document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
+        document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', cellSelectedOutcome));
+    } else {
+        gameResults.innerHTML = "Choose a character to play"
+    }
 }
 
 function resetGame() {
@@ -216,7 +213,7 @@ function resetGame() {
     document.getElementById('Werewolf').disabled = false;
     document.getElementById('Witch').disabled = false;
     document.getElementById('Vampire').disabled = false;
-    gameResults.innerHTML = ("Select a player to start")
+    gameResults.innerHTML = "Choose a character to play"
     document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
     document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', cellSelectedOutcome));
 }
@@ -224,3 +221,79 @@ function resetGame() {
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', cellSelectedOutcome));
 document.getElementById('Rematch').addEventListener('click', rematchGame);
 document.getElementById('Reset').addEventListener('click', resetGame);
+
+//STYLINGS:
+class TextScramble {
+    constructor(el) {
+      this.el = el
+      this.chars = '!<>-_\\/[]{}—=+*^?#________'
+      this.update = this.update.bind(this)
+    }
+    setText(newText) {
+      const oldText = this.el.innerText
+      const length = Math.max(oldText.length, newText.length)
+      const promise = new Promise((resolve) => this.resolve = resolve)
+      this.queue = []
+      for (let i = 0; i < length; i++) {
+        const from = oldText[i] || ''
+        const to = newText[i] || ''
+        const start = Math.floor(Math.random() * 40)
+        const end = start + Math.floor(Math.random() * 40)
+        this.queue.push({ from, to, start, end })
+      }
+      cancelAnimationFrame(this.frameRequest)
+      this.frame = 0
+      this.update()
+      return promise
+    }
+    update() {
+      let output = ''
+      let complete = 0
+      for (let i = 0, n = this.queue.length; i < n; i++) {
+        let { from, to, start, end, char } = this.queue[i]
+        if (this.frame >= end) {
+          complete++
+          output += to
+        } else if (this.frame >= start) {
+          if (!char || Math.random() < 0.28) {
+            char = this.randomChar()
+            this.queue[i].char = char
+          }
+          output += `<span class="dud">${char}</span>`
+        } else {
+          output += from
+        }
+      }
+      this.el.innerHTML = output
+      if (complete === this.queue.length) {
+        this.resolve()
+      } else {
+        this.frameRequest = requestAnimationFrame(this.update)
+        this.frame++
+      }
+    }
+    randomChar() {
+      return this.chars[Math.floor(Math.random() * this.chars.length)]
+    }
+  }
+
+  const phrases = [
+    'Are you watching closely...',
+    'Sooner or later',
+    'The monsters',
+    'Will come out',
+    'To play...'
+  ]
+  
+  const el = document.querySelector('.text')
+  const fx = new TextScramble(el)
+  
+  let counter = 0
+  const next = () => {
+    fx.setText(phrases[counter]).then(() => {
+      setTimeout(next, 800)
+    })
+    counter = (counter + 1) % phrases.length
+  }
+  
+  next()

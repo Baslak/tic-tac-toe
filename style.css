@@ -1,73 +1,119 @@
 * {
     font-family: 'Lato', sans-serif;
-    box-sizing: border-box;
-    margin: 0 auto;
+    margin: auto;
+    max-width: 980px;
 }
 
 body {
-    background-color: black;
-    color: antiquewhite;
+    background-color: rgb(7, 19, 28);
+    color: white;
 }
 
 header {
-    font-size: 20px;
-    width: auto;
     text-align: center;
     padding: 40px;
 }
 
-header > h1 {
-    padding: 20px 10px;
-}
-
-header > h2 {
-    padding: 20px 10px;
-}
-
-header > p {
-    font-style: italic;
-    padding: 10px;
-}
-
 .container {
+    height: 600px;
     display: flex;
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
+
+@media screen and (min-width: 600px) { 
+        padding: 0 30px;
+}
 }
 
 .results {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    font-size: 16px;
-    font-style: italic;
-    color: green;
+    font-size: 20px;
+    color: rgb(34,139,34);
     padding: 10px;
+    transition: text-indent .5s;
+    letter-spacing: 0.1em;
+    line-height: 26px;
+}
+
+.results:hover {
+    text-indent: 5px;
+    transition: text-indent .5s;
+    animation:  shake 0.8s;
+  }
+  
+  @keyframes shake{
+    0%{
+      transform: translateX(0)
+    }
+    25%{
+      transform: translateX(25px);
+    }
+      
+    50%{
+      transform: translateX(-25px);
+    }
+    100%{
+      transform: translateX(0px);
+    }
+}
+
+.text:hover::before {
+    display: inline-block;
+    content: '&#x2708;︎';
 }
 
 .gameboard {
     display: grid;
-    order: 2;
-    width: 300px;
-    height: 300px;
+    order: 1;
+    width: 350px;
+    height: 350px;
     grid-template-columns: repeat(3, auto);
 }
 .gameplay {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly;
     order: 2;
-    padding: 20px;
+    padding: 40px;
+}
+.gameplay > #Play {
+    order: 2;
+    padding: 10px;
+    width: 100px;
+}
+.gameplay > #Rematch {
+    order: 3;
+    padding: 10px;
+    width: 100px;
 }
 
 .buttons {
-    font-size: 16px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    background-color: firebrick;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    padding: 10px;
+    font-size: 18px;
+    border: 0.16em solid rgb(140,22,22);
+    background-color: rgb(176, 35, 35);
+    border-radius: 2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:300;
     color: white;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
     text-align: center;
-    padding: 15px 30px;
-    border-style: none;
+    transition: all 0.2s;
+}
+
+.buttons:hover {
+    border-color: rgb(235, 109, 109);
 }
 
 .cell {
@@ -80,36 +126,61 @@ header > p {
     transition: 0.2s ease-in-out;
 }
 .cell:hover {
-    background-color: bisque;
+    border-color: rgb(176, 35, 35);
+    color: yellow;
+    font-size:
+    transition: 0.2s ease-in-out;
 }
 
 .characters {
     display: block;
+    padding: 20px;
     order: 1;
     font-size: 20px;
-    width: 200px;
-    height: 200px;
+    line-height: 50px;
+    text-align: center;
 }
 
 h3 {
     font-size: 20px;
     padding: 20px;
+    letter-spacing: 0.05em;
 }
 
 .scoreboard {
-    display: inline-block;
+    display: block;
     order: 3;
+    padding: 20px;
+}
+
+.score {
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.score:hover {
+    color: yellow;
 }
 
 .scoreboard > ul {
     list-style-type: none;
+    text-align: center;
 }
 
 img {
-    display: flex;
-    flex-direction: row;
-    height: 75px;
-    width: 75px;
+    display: inline-block;
+    border: 1px yellow;
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+    border-radius: 1em;
+}
+
+img:hover {
+    border: 5px yellow;
 }
 
 .reset-game {
@@ -119,4 +190,22 @@ img {
 footer {
     padding: 30px;
     text-align: center;
+}
+
+.scary {
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.text {
+    font-weight:100;
+    font-size: 28px;
+    color: #FAFAFA;
+}
+.dud {
+    color: #757575;
 }

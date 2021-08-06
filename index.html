@@ -12,21 +12,26 @@
     <main>
         <header>
             <h1 class="game-title">Halloween Tic-Tac-Toe</h1>
-            <h2 class="tag-line">Can you beat them all?</h2>
-            <p>~Mouhaha~</p>
+            <div class="scary">
+                <div class="text"></div>
+              </div>
         </header>
-        <h4 class="results">No game is active. To start, let player one select a character</h4>
+        <h4 class="results">Player 1 must select a character</h4>
         <div class="container">
-            <div class="gameboard">
-                <div data-cell-index="0" class="cell"></div>
-                <div data-cell-index="1" class="cell"></div>
-                <div data-cell-index="2" class="cell"></div>
-                <div data-cell-index="3" class="cell"></div>
-                <div data-cell-index="4" class="cell"></div>
-                <div data-cell-index="5" class="cell"></div>
-                <div data-cell-index="6" class="cell"></div>
-                <div data-cell-index="7" class="cell"></div>
-                <div data-cell-index="8" class="cell"></div>
+            <div class="gameplay">
+                <div class="gameboard">
+                    <div data-cell-index="0" class="cell"></div>
+                    <div data-cell-index="1" class="cell"></div>
+                    <div data-cell-index="2" class="cell"></div>
+                    <div data-cell-index="3" class="cell"></div>
+                    <div data-cell-index="4" class="cell"></div>
+                    <div data-cell-index="5" class="cell"></div>
+                    <div data-cell-index="6" class="cell"></div>
+                    <div data-cell-index="7" class="cell"></div>
+                    <div data-cell-index="8" class="cell"></div>
+                </div>
+                <button class="buttons" id="Play">Play</button><br>
+                <button class="buttons" id="Rematch">Rematch</button>
             </div>
             <div class="characters">
                 <h3>Choose a character</h3>
@@ -48,30 +53,28 @@
                 <h3>Player Scoreboard</h3>
                 <ul>
                     <li>
-                        <a class="players" href="#" data-character="Witch">
                         <img src="images/Witch.jpg" alt="Witch"/></a>
-                        <div class="scoreboard" value=0 data-score="Witch">0</div>
+                        <div class="score" data-character="Witch">0</div>
                     </li>
                     <li>
-                        <a class="players" href="#" data-character="Vampire">
                         <img src="images/Vampire.jpg" alt="Vampire"/></a>
-                        <div class="scoreboard" value=0 data-score="Vampire">0</div>
+                        <div class="score" data-character="Vampire">0</div>
                     </li>
-                        <a class="players" href="#" data-character="Werewolf">
-                        <img src="images/Werewolf.jpg" alt="Werewolf"/></a>
-                        <div class="scoreboard" value=0 data-score="Werewolf">0</div>
+                        <img src="images/werewolfnew.jpg" alt="Werewolf"/></a>
+                        <div class="score" data-character="Werewolf">0</div>
                     </li>
                 </ul>
                 <div class="reset-game">
                     <button class="buttons" id="Reset">Reset Game</button>
                 </div>
-                <div class="gameplay">
-                    <button class="buttons" id="Play">Play</button><br>
-                    <button class="buttons" id="Rematch">Rematch</button>
-                </div>
             </div>
         </div>
         <footer>
+            <h2>
+                <p>|| Mouhaha ||</p>
+
+                <p>Thanks for playing...</p>
+            </h2>
             <p>Halloween Tic-Tac-Toe</p>
         </footer>
     </main>
