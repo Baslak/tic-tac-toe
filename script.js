@@ -9,7 +9,7 @@ let gameActive = true;
 let gameStatus = ["", "", "", "", "", "", "", "", ""]; 
 // each cell is treated as a string in an array. Currently each cell is empty as no move has been played.
 let matchWon = false
-const gameDraw = !gameStatus.includes(""); //i.e. no empty places left to go
+let gameDraw = !gameStatus.includes(""); //i.e. no empty places left to go
 
 let player1Turn = true
 let player1Score = 0
@@ -166,7 +166,8 @@ function checkifWin() {
         if (gameStatus[condition[0]] === gameStatus[condition[1]] && gameStatus[condition[0]] === gameStatus[condition[2]] && gameStatus[condition[0]] !== "") {
             matchWon = true
             console.log(currentPlayer)
-            gameResults.innerHTML = `Player ${currentPlayer} has won. Hit rematch to start again or reset to play with new characters!`
+            gameResults.innerHTML = `Player ${currentPlayer} has won! <br>
+            Hit rematch or reset to play with new characters`
             if (currentPlayer === player1Selection) {
                 player1Score = player1Score += 1
             } else if (currentPlayer === player2Selection) {
