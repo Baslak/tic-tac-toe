@@ -97,6 +97,9 @@ header {
     padding: 10px;
     width: 100px;
 }
+.chooseButton {
+    padding: 10px;
+}
 
 button {
     display:inline-block;
@@ -133,7 +136,7 @@ button {
 .cell:hover {
     border-color: rgb(176, 35, 35);
     color: yellow;
-    font-size:
+    font-size: 20px;
     transition: 0.2s ease-in-out;
 }
 
@@ -182,16 +185,13 @@ h3 {
 }
 
 img {
-    display: inline-block;
-    border: 1px yellow;
+    display: flex;
     height: 100px;
     width: 100px;
     padding: 10px;
     border-radius: 1em;
-}
-
-img:hover {
-    border: 5px yellow;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .reset-game {

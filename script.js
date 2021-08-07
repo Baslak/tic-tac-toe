@@ -9,6 +9,7 @@ let gameActive = true;
 let gameStatus = ["", "", "", "", "", "", "", "", ""]; 
 // each cell is treated as a string in an array. Currently each cell is empty as no move has been played.
 let matchWon = false
+//determine if the game is won
 
 let player1Turn = true
 let player1Score = 0
@@ -67,13 +68,13 @@ chooseButton.addEventListener('click', (event) => {
     if (player1Selection === '') {
         player1Selection = selectCharacter();
         currentPlayer = player1Selection
-        gameResults.innerHTML = `Player 1 has selected: ${player1Selection}. Player 2 must decide!`
+        gameResults.innerHTML = `Player 1 has selected: ${player1Selection}. <br> Player 2 must decide!`
         disableCharacterButtons ()
 
     } else if (player2Selection === '') {
             player2Selection = selectCharacter();
             if (player1Selection != player2Selection) {
-            gameResults.innerHTML= `Player 2 has selected: ${player2Selection}. Hit play to start`
+            gameResults.innerHTML= `Player 2 has selected: ${player2Selection}. <br> Hit play to start`
             
             document.getElementById('Werewolf').disabled = true;
             document.getElementById('Vampire').disabled = true;
@@ -123,7 +124,7 @@ function cellSelected(clickedCell, cellIndex) {
         if (matchWon === true) {
             return;
         } else {
-        gameResults.innerHTML = "It's a draw. Hit rematch to play againt or restart game to choose new characters"
+        gameResults.innerHTML = "It's a draw! <br> Hit rematch or restart game"
         console.log("its a draw!")
         return;
         }
@@ -155,7 +156,6 @@ function updateScore () {    //Push scores into html
         }
     }
 }
-// let gameDraw = !gameStatus.includes(""); //i.e. no empty places left to go
 
 function checkifWin() {
     for (let condition of winningConditions) {
@@ -215,6 +215,7 @@ document.getElementById('Rematch').addEventListener('click', rematchGame);
 document.getElementById('Reset').addEventListener('click', resetGame);
 
 //STYLINGS:
+
 class TextScramble {
     constructor(el) {
       this.el = el
