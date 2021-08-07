@@ -31,8 +31,10 @@
 ---
 ### How to develop the game
 * Develop another gameboard
-* Amend CSS styling to ensure supported across all browsers
+* Amend CSS styling to ensure supported on mobile platform
 * Amend header and reset button
+* Ensure player can't change the squares
+* Add a computer generated player
 * Refine JS
 
 ---
