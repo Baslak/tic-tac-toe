@@ -7,7 +7,7 @@
 
 ---
 ## Gameboard
-<img src="images/TicTacToe (2).png" alt="TicTacToe board"/>
+<img src="images/TicTacToe.png" alt="TicTacToe board"/>
 
 *Designed on figma*
 
