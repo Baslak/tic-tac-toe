@@ -30,7 +30,6 @@
 
 ---
 ### How to develop the game
-* remove event listener for cell after clicked
 * Develop another gameboard
 * Amend CSS styling to ensure supported on mobile platform
 * Amend header and reset button
