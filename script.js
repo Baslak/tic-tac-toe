@@ -36,7 +36,6 @@ const selectCharacter = () => {
         }
         return selection
     }
-
        
 function characterChosenCheck () {
     if (player1Selection === '' || player2Selection === '') {
@@ -112,8 +111,13 @@ function cellSelectedOutcome(event) {
     }
 }
 function cellSelected(clickedCell, cellIndex) {
-    gameStatus[cellIndex] = currentPlayer; //current player is pushed into the cell index
-    clickedCell.innerHTML = currentPlayer; //report to player
+    if (clickedCell.innerHTML ===  "") {
+        gameStatus[cellIndex] = currentPlayer; //current player is pushed into the cell index
+        clickedCell.innerHTML = currentPlayer; //report to player
+    } else {
+        document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', cellSelectedOutcome));
+        return;
+    }
 
     if (!gameStatus.includes("")) {
         checkifWin()
