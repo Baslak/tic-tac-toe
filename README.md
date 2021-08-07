@@ -6,7 +6,7 @@
 > Be afraid...Be very afraid
 
 ---
-## Gameboard
+## Gameboard (First Draft)
 <img src="images/TicTacToe.png" alt="TicTacToe board"/>
 
 *Designed on figma*
@@ -19,6 +19,7 @@
 4. Reset the game to play again
 5. Check your player's scoreboard
 
+### Gameboard (Final Draft)
 <img src="images/GameAction.jpg" alt="TicTacToe board"/>
 
 ---
