@@ -2,6 +2,7 @@ const gameResults = document.querySelector('h4') // provide the status of the ga
 // const scores = document.getElementsByClassName("score")
 const playButton = document.getElementById('Play');
 const resetButton = document.getElementById('Reset')
+const chooseButton = document.getElementById('choose')
 const scores = document.getElementsByClassName("score")
 
 let gameActive = true;
@@ -60,8 +61,6 @@ function disableCharacterButtons () {
         return;
     }
 }
-
-const chooseButton = document.getElementById('choose')
 
 chooseButton.addEventListener('click', (event) => {
     

@@ -3,6 +3,36 @@
     margin: auto;
     max-width: 980px;
 }
+@media screen and (max-width: 380px) { 
+
+.container {
+    display: flex;
+    flex-direction: row;
+    max-width: 300px;
+}
+.gameplay {
+    display: flex;
+    flex-direction: row;
+    max-width: 300px;
+}
+.gameboard {
+    display: grid;
+    order: 1;
+    width: 200px;
+    height: 200px;
+    grid-template-columns: repeat(3, auto)
+}
+.scoreboard {
+    display: flex;
+    flex-direction: row;
+    max-width: 300px;
+}
+.characters {
+    display: flex;
+    flex-direction: row;
+    max-width: 300px;
+}
+}
 
 body {
     background-color: rgb(7, 19, 28);
@@ -12,6 +42,7 @@ body {
 header {
     text-align: center;
     padding-top: 40px;
+    flex-wrap: wrap;
 }
 
 .container {
@@ -22,14 +53,11 @@ header {
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-
-@media screen and (min-width: 600px) { 
-        padding: 0 30px;
-}
 }
 
 .results {
     position: absolute;
+    flex-wrap: wrap;
     top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -73,10 +101,12 @@ header {
     order: 1;
     width: 350px;
     height: 350px;
+    border-radius: 2em;
     grid-template-columns: repeat(3, auto);
 }
 .gameplay {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     justify-content:space-evenly;
@@ -132,12 +162,13 @@ button {
     justify-content: center;
     border: 5px solid white;
     transition: 0.2s ease-in-out;
+    border-radius: 2em;
 }
 .cell:hover {
     border-color: rgb(176, 35, 35);
     color: yellow;
     font-size: 20px;
-    transition: 0.2s ease-in-out;
+    transition: 0.5s ease-in-out;
 }
 
 .characters {
@@ -201,8 +232,14 @@ img {
 }
 
 footer {
+    display: flex;
+    flex-wrap: wrap;
     padding: 30px;
     text-align: center;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .scary {
