@@ -6,54 +6,22 @@
 @media only screen 
 and (min-device-width : 320px) 
 and (max-device-width : 480px) { 
-* {
+*   {
     height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
     height: calc(var(--vh, 1vh) * 100);
     margin: 0 auto;
     max-width: 30%;
+    }
 }
-.container {
-    display: flex;
-    flex-direction: row;
-    max-width: 300px;
-}
-.gameplay {
-    display: flex;
-    flex-direction: row;
-    max-width: 300px;
-}
-.gameboard {
-    display: grid;
-    order: 1;
-    width: 200px;
-    height: 200px;
-    grid-template-columns: repeat(3, auto)
-}
-.cell {
-    width: 50px;
-    height: 50px;
-}
-.scoreboard {
-    display: flex;
-    flex-direction: row;
-    max-width: 300px;
-}
-.characters {
-    display: flex;
-    flex-direction: row;
-    max-width: 300px;
-}
-}
-
 body {
     background-color: rgb(7, 19, 28);
     color: white;
 }
 
 header {
-    text-align: center;
     padding-top: 40px;
     flex-wrap: wrap;
+    display: flex;
 }
 
 .container {
@@ -196,9 +164,11 @@ button {
 }
 
 h3 {
+    display: flex;
     font-size: 20px;
     padding: 10px;
     letter-spacing: 0.05em;
+    flex-wrap: wrap;
 }
 
 .scoreboard {
@@ -236,7 +206,12 @@ img {
     flex-wrap: wrap;
     align-content: center;
 }
-
+img:hover{
+    opacity:0.4; /* how much transparent you want image to be*/
+    filter:alpha(opacity=80); /* browser fix*/
+    -webkit-opacity:0.4; /*vendor prefixes for website browsers*/
+    -moz-opacity:0.4; /* same as above, edited thankx to @ Daniel_Lisik  */
+}
 .reset-game {
     padding: 10px;
     justify-content: flex-end;
