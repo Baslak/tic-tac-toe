@@ -19,6 +19,8 @@
 4. Reset the game to play again
 5. Check your player's scoreboard
 
+<img src="images/GameAction.jpg" alt="TicTacToe board"/>
+
 ---
 ### Important Files
 * css
