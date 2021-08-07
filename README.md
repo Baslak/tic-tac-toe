@@ -6,8 +6,8 @@
 > Be afraid...Be very afraid
 
 ---
-## Gameboard
-<img src="images/TicTacToe (2).png" alt="TicTacToe board"/>
+## Gameboard (First Draft)
+<img src="images/TicTacToe.png" alt="TicTacToe board"/>
 
 *Designed on figma*
 
@@ -19,6 +19,9 @@
 4. Reset the game to play again
 5. Check your player's scoreboard
 
+### Gameboard (Final Draft)
+<img src="images/GameAction.jpg" alt="TicTacToe board"/>
+
 ---
 ### Important Files
 * css
@@ -26,10 +29,10 @@
 * html
 
 ---
-### Progess...
-* Gameboard desigend with 8 different winning conditions
-* 3 different characters developed
-* Grid board designed
+### How to develop the game
+* Develop another gameboard
+* Amend CSS styling to ensure supported across all browsers
+* Refine JS
 
 ---
 ### Version History
