@@ -58,7 +58,7 @@ header {
 .results {
     position: absolute;
     flex-wrap: wrap;
-    top: 20%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -163,6 +163,7 @@ button {
     border: 5px solid white;
     transition: 0.2s ease-in-out;
     border-radius: 2em;
+    
 }
 .cell:hover {
     border-color: rgb(176, 35, 35);
