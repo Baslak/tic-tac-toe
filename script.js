@@ -116,8 +116,6 @@ function cellSelected(clickedCell, cellIndex) {
     gameStatus[cellIndex] = currentPlayer; //current player is pushed into the cell index
     clickedCell.innerHTML = currentPlayer; //report to player
 
-    checkifWin()
-
     if (!gameStatus.includes("")) {
         checkifWin()
         console.log("board full")
@@ -166,9 +164,9 @@ function checkifWin() {
             Hit rematch or reset to play with new characters`
 
             if (currentPlayer === player1Selection) {
-                player1Score = player1Score += 1
+                currentScore = player1Score += 1
             } else if (currentPlayer === player2Selection) {
-                player2Score = player2Score += 1
+                currentScore = player2Score += 1
             }
             updateScore()
         }
