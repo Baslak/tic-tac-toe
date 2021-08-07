@@ -9,7 +9,6 @@ let gameActive = true;
 let gameStatus = ["", "", "", "", "", "", "", "", ""]; 
 // each cell is treated as a string in an array. Currently each cell is empty as no move has been played.
 let matchWon = false
-let gameDraw = !gameStatus.includes(""); //i.e. no empty places left to go
 
 let player1Turn = true
 let player1Score = 0
@@ -112,17 +111,23 @@ function cellSelectedOutcome(event) {
         cellSelected(clickedCell, cellIndex);
     }
 }
-
 function cellSelected(clickedCell, cellIndex) {
-    if (matchWon === false) {
-        gameStatus[cellIndex] = currentPlayer; //current player is pushed into the cell index
-        clickedCell.innerHTML = currentPlayer; //report to player
-        console.log(gameStatus)
-    }
-    checkifDraw()
+    gameStatus[cellIndex] = currentPlayer; //current player is pushed into the cell index
+    clickedCell.innerHTML = currentPlayer; //report to player
+
     checkifWin()
 
-    if (matchWon === false) {
+    if (!gameStatus.includes("")) {
+        checkifWin()
+        console.log("board full")
+        if (matchWon === true) {
+            return;
+        } else {
+        gameResults.innerHTML = "It's a draw. Hit rematch to play againt or restart game to choose new characters"
+        console.log("its a draw!")
+        return;
+        }
+    } else if (matchWon === false) {
         player1Turn = !player1Turn;
         currentPlayer = player1Turn ? player1Selection : player2Selection; //ternary exp.
         gameResults.innerHTML= `It's ${currentPlayer}'s turn`;
@@ -150,38 +155,24 @@ function updateScore () {    //Push scores into html
         }
     }
 }
-
-function checkifDraw() {
-    if (gameDraw) {
-        gameResults.innerHTML = "It's a draw. Hit rematch to play againt or restart game to choose new characters"
-        rematchGame()
-        return;
-    } else {
-        return;
-    }
-}
+// let gameDraw = !gameStatus.includes(""); //i.e. no empty places left to go
 
 function checkifWin() {
     for (let condition of winningConditions) {
         if (gameStatus[condition[0]] === gameStatus[condition[1]] && gameStatus[condition[0]] === gameStatus[condition[2]] && gameStatus[condition[0]] !== "") {
             matchWon = true
-            console.log(currentPlayer)
+            console.log("You won")
             gameResults.innerHTML = `Player ${currentPlayer} has won! <br>
             Hit rematch or reset to play with new characters`
+
             if (currentPlayer === player1Selection) {
                 player1Score = player1Score += 1
             } else if (currentPlayer === player2Selection) {
                 player2Score = player2Score += 1
             }
             updateScore()
-
-            gameActive = false;
-            gameStatus = ["", "", "", "", "", "", "", "", ""];
-            document.querySelectorAll('.cell').forEach(cell => cell.removeEventListener('click', cellSelectedOutcome));
-            return;
-            }
         }
-    return currentPlayer
+    }
 }
 
 function rematchGame() {

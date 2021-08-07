@@ -11,7 +11,7 @@ body {
 
 header {
     text-align: center;
-    padding: 40px;
+    padding-top: 40px;
 }
 
 .container {
@@ -38,7 +38,6 @@ header {
     color: rgb(34,139,34);
     padding: 10px;
     transition: text-indent .5s;
-    line-height: 26px;
     letter-spacing: 0.05em;
 }
 
@@ -84,6 +83,9 @@ header {
     order: 2;
     padding: 40px;
 }
+.gameButtons {
+    order: 2;
+}
 .gameplay > #Play {
     order: 2;
     padding: 10px;
@@ -95,7 +97,7 @@ header {
     width: 100px;
 }
 
-.buttons {
+button {
     display:inline-block;
     padding:0.3em 1.2em;
     margin:0 0.1em 0.1em 0;
@@ -111,6 +113,7 @@ header {
     text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
     text-align: center;
     transition: all 0.2s;
+    min-width: 150px;
 }
 
 .buttons:hover {
