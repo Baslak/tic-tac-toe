@@ -29,10 +29,10 @@
 * html
 
 ---
-### Progess...
-* Gameboard desigend with 8 different winning conditions
-* 3 different characters developed
-* Grid board designed
+### How to develop the game
+* Develop another gameboard
+* Amend CSS styling to ensure supported across all browsers
+* Refine JS
 
 ---
 ### Version History
