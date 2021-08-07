@@ -32,6 +32,7 @@
 ### How to develop the game
 * Develop another gameboard
 * Amend CSS styling to ensure supported across all browsers
+* Amend header and reset button
 * Refine JS
 
 ---
