@@ -85,6 +85,7 @@ header {
 }
 .gameButtons {
     order: 2;
+    padding: 20px;
 }
 .gameplay > #Play {
     order: 2;
@@ -113,7 +114,7 @@ button {
     text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
     text-align: center;
     transition: all 0.2s;
-    min-width: 150px;
+    min-width: 100px;
 }
 
 .buttons:hover {
@@ -137,12 +138,15 @@ button {
 }
 
 .characters {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     padding: 20px;
     order: 1;
     font-size: 20px;
     line-height: 50px;
     text-align: center;
+    justify-content: center;
 }
 
 h3 {
@@ -152,9 +156,12 @@ h3 {
 }
 
 .scoreboard {
-    display: block;
+    display: flex;
     order: 3;
     padding: 20px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .score {
@@ -189,6 +196,8 @@ img:hover {
 
 .reset-game {
     padding: 10px;
+    justify-content: flex-end;
+    display: flex;
 }
 
 footer {
